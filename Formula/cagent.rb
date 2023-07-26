@@ -6,42 +6,42 @@ require_relative "../custom_download_strategy"
 class Cagent < Formula
   desc ""
   homepage "https://github.com/nomad10101/cloudback"
-  version "0.0.7"
+  version "0.0.8"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.7/cloudback_Darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "e1fff9d7081594c3c36d7aa20a2bbaea9d8fb87d5870ec20bd76b9e4ddb034ee"
+      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.8/homebrew-nomad_Darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "540aff65aa976e37ac6012d18f606a09a1878650cfb4c22a95bf2638e0bf7932"
 
       def install
-        bin.install "cloudback"
+        bin.install "homebrew-nomad"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.7/cloudback_Darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "35ee232a31c310d5e5696e78f1ad821b811d073462c4219a2fc9610a0fcbd3f6"
+      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.8/homebrew-nomad_Darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "2f114b76eea9e1d60e91cd64b6dcc43579299e3ab942cac4daae3bc63cb08773"
 
       def install
-        bin.install "cloudback"
+        bin.install "homebrew-nomad"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.7/cloudback_Linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "40e2accf63cf28b12f140c3abdf90013e6fff5ecbb70942e07caa472e45b1463"
+      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.8/homebrew-nomad_Linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "c70825a6184b2e84cd7a47662e8abe0912b0ce9ead2902cd72c6ff0fcf8bf5e7"
 
       def install
-        bin.install "cloudback"
+        bin.install "homebrew-nomad"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.7/cloudback_Linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "6eba725b7bca5ccbcde586b6d2476bd5a64f474d9195d6b7666fedb75ff25828"
+      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.8/homebrew-nomad_Linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "36d164a3edc13830e5e9eceb4ed5284de27142c601bddafbf2aa2bf84a8838b6"
 
       def install
-        bin.install "cloudback"
+        bin.install "homebrew-nomad"
       end
     end
   end
