@@ -6,20 +6,20 @@ require_relative "../custom_download_strategy"
 class Cagent < Formula
   desc ""
   homepage "https://github.com/nomad10101/cloudback"
-  version "0.0.8"
+  version "0.0.9"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.8/homebrew-nomad_Darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "540aff65aa976e37ac6012d18f606a09a1878650cfb4c22a95bf2638e0bf7932"
+    if Hardware::CPU.arm?
+      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.9/homebrew-nomad_Darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "061d3063ee0effa53d9138d00dcaf46e115d2d0c5e3980686f9cf26880a31190"
 
       def install
         bin.install "homebrew-nomad"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.8/homebrew-nomad_Darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "2f114b76eea9e1d60e91cd64b6dcc43579299e3ab942cac4daae3bc63cb08773"
+    if Hardware::CPU.intel?
+      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.9/homebrew-nomad_Darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "a68cd467d2709a75687b91ec3b6cb9d90cacbe0489f2baec5df08905e66e31ff"
 
       def install
         bin.install "homebrew-nomad"
@@ -28,17 +28,17 @@ class Cagent < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.8/homebrew-nomad_Linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "c70825a6184b2e84cd7a47662e8abe0912b0ce9ead2902cd72c6ff0fcf8bf5e7"
+    if Hardware::CPU.intel?
+      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.9/homebrew-nomad_Linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "57b0ba3ef1302778b2cbe0f901d7d3826a82208f87d01488c13dedb769f81e0d"
 
       def install
         bin.install "homebrew-nomad"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.8/homebrew-nomad_Linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "36d164a3edc13830e5e9eceb4ed5284de27142c601bddafbf2aa2bf84a8838b6"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.9/homebrew-nomad_Linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "72e326847dc4445c2c14d38b220643bb24c4f1964bebf067e9cb2795ebe95e73"
 
       def install
         bin.install "homebrew-nomad"
