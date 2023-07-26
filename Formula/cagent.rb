@@ -6,42 +6,42 @@ require_relative "../custom_download_strategy"
 class Cagent < Formula
   desc ""
   homepage "https://github.com/nomad10101/cloudback"
-  version "0.0.10"
+  version "0.0.12"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.10/homebrew-nomad_Darwin_x86_64.tar.gz"
-      sha256 "b2efe0f629bf5082d78754cd19ace74c25a804d2938817d090f58710f2a40e47"
+    if Hardware::CPU.arm?
+      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.12/portola-release_Darwin_arm64.tar.gz"
+      sha256 "0503d9556d9ecdee769c470a9de391d5068f1e1b9dfdc266d0bc3754a9781c1f"
 
       def install
-        bin.install "homebrew-nomad"
+        bin.install "portola-release"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.10/homebrew-nomad_Darwin_arm64.tar.gz"
-      sha256 "6d243b717116b20d4e7872214f6ea07c6d90d2c17a5818daa400a2eff1e0751b"
+    if Hardware::CPU.intel?
+      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.12/portola-release_Darwin_x86_64.tar.gz"
+      sha256 "95cd6804f9d2bdc7ca5cbd45babd2ce4768ca062a8b4bf3b1f2633962a14cdf2"
 
       def install
-        bin.install "homebrew-nomad"
+        bin.install "portola-release"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.10/homebrew-nomad_Linux_arm64.tar.gz"
-      sha256 "fa188df7a0de0a6b49cb117ab06b75db174d0d418d7f89b5354a3512351a1d3a"
+      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.12/portola-release_Linux_arm64.tar.gz"
+      sha256 "93338388d64754b8da6a4bd0be02172053e768f920fd212d6e556369cd6bbc4b"
 
       def install
-        bin.install "homebrew-nomad"
+        bin.install "portola-release"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/homebrew-nomad/releases/download/v0.0.10/homebrew-nomad_Linux_x86_64.tar.gz"
-      sha256 "7cb9a255d7d5c9ea7bdc5705bb9cae649d0357e74fd97a63edcd0c66733f3186"
+      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.12/portola-release_Linux_x86_64.tar.gz"
+      sha256 "6b770aa59aa9c8bf8dba03c9713e313d3bd6f9eeb673c8fc1726e697c4f4da05"
 
       def install
-        bin.install "homebrew-nomad"
+        bin.install "portola-release"
       end
     end
   end
