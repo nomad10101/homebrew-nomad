@@ -5,46 +5,54 @@
 class Cagent < Formula
   desc ""
   homepage "https://github.com/nomad10101/cloudback"
-  version "0.0.26"
+  version "0.0.27"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.26/portola-release_Darwin_arm64.tar.gz"
-      sha256 "c9b3dc40ce8ff9dabcdc8cac570eca926b328337f50bac4c5373886ee7e94c72"
+      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.27/portola-release_Darwin_arm64.tar.gz"
+      sha256 "a570ba57daab08af6cb444178caa18fc98518774b40ae382b3eb29b7165cabc4"
 
       def install
         bin.install "cagent"
         prefix.install Dir["assets"]
+        etc.install Dir["assets"]
+        prefix.install_symlink Dir["assets"]
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.26/portola-release_Darwin_x86_64.tar.gz"
-      sha256 "d6c60e65d83f913e52341fc0c55468598f3ef466f2ac53e25e3517289b8a16b9"
+      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.27/portola-release_Darwin_x86_64.tar.gz"
+      sha256 "73cd58223aad889cda901048d7f28f9ee78c2a4f82c75666fe8fe7cef50cc576"
 
       def install
         bin.install "cagent"
         prefix.install Dir["assets"]
+        etc.install Dir["assets"]
+        prefix.install_symlink Dir["assets"]
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.26/portola-release_Linux_arm64.tar.gz"
-      sha256 "2fe77dac9e8301ae49b9c546ad9d6666aaa7ffeb2b26fac9660e1f62fceebdbe"
+      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.27/portola-release_Linux_arm64.tar.gz"
+      sha256 "ec87442b1796000aabd2335a09711ca49eadf34ff9fb31178974fb5ff2499183"
 
       def install
         bin.install "cagent"
         prefix.install Dir["assets"]
+        etc.install Dir["assets"]
+        prefix.install_symlink Dir["assets"]
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.26/portola-release_Linux_x86_64.tar.gz"
-      sha256 "f2a8d5a57a891f1edea1a593ae6a5dade92a2b88b905e17bd0d1e9b1b558f77d"
+      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.27/portola-release_Linux_x86_64.tar.gz"
+      sha256 "97ba0fdd0ca40f510a2a753b4ebedd88c0741bc3ed325722547171a1eb8ab2a0"
 
       def install
         bin.install "cagent"
         prefix.install Dir["assets"]
+        etc.install Dir["assets"]
+        prefix.install_symlink Dir["assets"]
       end
     end
   end
