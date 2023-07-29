@@ -6,13 +6,33 @@ require_relative "../custom_download_strategy"
 class Cserver < Formula
   desc ""
   homepage "https://github.com/nomad10101/cloudback"
-  version "0.0.22"
-  depends_on :linux
+  version "0.0.23"
+
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.23/cloudback_Darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "bc5652f425ad0d942b27299508dacddb7c9977fcfd488566f78680b668ac5979"
+
+      def install
+        bin.install "cserver"
+        prefix.install Dir["assets"]
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.23/cloudback_Darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "7e7dd8ca00087c2cb2b07ad4fbc4c080b74b70852d7b37686a6a031e5e74012b"
+
+      def install
+        bin.install "cserver"
+        prefix.install Dir["assets"]
+      end
+    end
+  end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.22/cloudback_Linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "7ed7952e22a80a2b846c5e07389e4a6bd5bf26e0de4fdfbc1396c129b671eb89"
+      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.23/cloudback_Linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "74f4ffab28fcd3e71c4a2be22f1997a0712f09cda9c9a364a096fc4e41931516"
 
       def install
         bin.install "cserver"
@@ -20,8 +40,8 @@ class Cserver < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.22/cloudback_Linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "1b4416f272b3e14126e5c3d4a7bf85dd3f3c6dc97c81f18a9260fe33a8ce7a0c"
+      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.23/cloudback_Linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "1b056ffbd1b30749b91931e920d668e3385f4c10000c6069e1bccdf0508fcc6b"
 
       def install
         bin.install "cserver"
