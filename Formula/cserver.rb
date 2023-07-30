@@ -6,12 +6,12 @@ require_relative "../custom_download_strategy"
 class Cserver < Formula
   desc ""
   homepage "https://github.com/nomad10101/cloudback"
-  version "0.0.34"
+  version "0.0.35"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.34/cloudback_Darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "4ab26914f6c28700ca3f264fe2b2dd678a761f52c48c545c70155275f253f25a"
+    if Hardware::CPU.intel?
+      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.35/cloudback_Darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "40dac1858645d3c308163d353815513fac14c65abb82f2fc07f4564c7dfd3f61"
 
       def install
         bin.install "cserver"
@@ -19,9 +19,9 @@ class Cserver < Formula
         prefix.install_symlink Dir["assets"]
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.34/cloudback_Darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "3871403d78bf2a8ea1ab2548acf7be83a1264f00f807196e4a0a8bf077685c21"
+    if Hardware::CPU.arm?
+      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.35/cloudback_Darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "02f438724a1e3a90afa3e01e5dc4d06cfdd21f45e3295a5e149df87ffa42c49b"
 
       def install
         bin.install "cserver"
@@ -33,8 +33,8 @@ class Cserver < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.34/cloudback_Linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "9e25a2259a57569535e91a91f944b011cc52c7b53a9b3b8efd0fcda471d6174e"
+      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.35/cloudback_Linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "9c98698ef53b18dd88678f19fa23d40de5aece3fb31b4611c7bde2e734862cfa"
 
       def install
         bin.install "cserver"
@@ -43,8 +43,8 @@ class Cserver < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.34/cloudback_Linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "aefab602b1da262d8982099e64a75ac6fca8b1bbaf8c42095f220853b9e4d08d"
+      url "https://github.com/nomad10101/cloudback/releases/download/v0.0.35/cloudback_Linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "9b4982516a864da2c659b91212d6590676e2143f28e38eb604a5696b98404012"
 
       def install
         bin.install "cserver"
@@ -64,5 +64,7 @@ class Cserver < Formula
 
   service do
     run [opt_bin/"cserver", "--assets-path", opt_prefix/"assets", "service"]
+    environment_variables BREW_OPT_HOME: opt_prefix
+    keep_alive true
   end
 end
