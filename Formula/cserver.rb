@@ -63,6 +63,6 @@ class Cserver < Formula
   end
 
   service do
-    run [opt_bin/"cserver", "service", "--assets-path", opt_prefix/"assets"]
+    run [opt_bin/"cserver service", "--assets-path", opt_prefix/"assets"]
   end
 end
