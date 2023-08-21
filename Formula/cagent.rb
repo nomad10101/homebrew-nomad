@@ -5,12 +5,12 @@
 class Cagent < Formula
   desc ""
   homepage "https://github.com/nomad10101/cloudback"
-  version "0.0.42"
+  version "0.0.43"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.42/portola-release_Darwin_arm64.tar.gz"
-      sha256 "03fa9484232db705612001a347e574bc6e62b91de5a08cab16f99bcd2f84d620"
+    if Hardware::CPU.intel?
+      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.43/portola-release_Darwin_x86_64.tar.gz"
+      sha256 "2827f8877b91be0df3a2d78a08864cd66306f9ce29e54214c365c771e553791c"
 
       def install
         bin.install "cagent"
@@ -18,9 +18,9 @@ class Cagent < Formula
         prefix.install_symlink Dir["assets"]
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.42/portola-release_Darwin_x86_64.tar.gz"
-      sha256 "1fe8511985e2873547c2bf506f653cd839828a85333cf5fcb3f1f74783d625fb"
+    if Hardware::CPU.arm?
+      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.43/portola-release_Darwin_arm64.tar.gz"
+      sha256 "7cd7e3f325c59867220cb3da6651c47ccd306cd564459941fe40b31651d57884"
 
       def install
         bin.install "cagent"
@@ -31,9 +31,9 @@ class Cagent < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.42/portola-release_Linux_x86_64.tar.gz"
-      sha256 "76a3d1e600ce119509fe63fb29c88f6df4253d6260784d4fd67bdb8a8cb662fd"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.43/portola-release_Linux_arm64.tar.gz"
+      sha256 "8cd5cc8090b7a23542b6eae230d004c89f2cc017f2b5338d3275c94ccbcb427e"
 
       def install
         bin.install "cagent"
@@ -41,9 +41,9 @@ class Cagent < Formula
         prefix.install_symlink Dir["assets"]
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.42/portola-release_Linux_arm64.tar.gz"
-      sha256 "903f6b87c58940ea92af3466a4ad390295bacdce491117efff3556ac00b52a4a"
+    if Hardware::CPU.intel?
+      url "https://github.com/nomad10101/portola-release/releases/download/v0.0.43/portola-release_Linux_x86_64.tar.gz"
+      sha256 "1b9c441c5faf7c2c4e173838a76bc9096ce56263e91cd52dac495d7c78540e40"
 
       def install
         bin.install "cagent"
