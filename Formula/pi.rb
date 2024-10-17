@@ -5,12 +5,12 @@
 class Pi < Formula
   desc ""
   homepage "https://github.com/nomad10101/portola"
-  version "0.0.100"
+  version "0.0.101"
   depends_on :macos
 
   on_intel do
-    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.100/portola-release_Darwin_x86_64.tar.gz"
-    sha256 "f9ca95f05d2bd5209499c589e6ba01aad0aa66d3f27ed43acabc858c57f6e6ea"
+    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.101/portola-release_Darwin_x86_64.tar.gz"
+    sha256 "2dcc1e5ab549a41d33ef8090744a368effc0292af2a3738e9abd9be629ef9f1b"
 
     def install
       bin.install "pi"
@@ -18,8 +18,8 @@ class Pi < Formula
     end
   end
   on_arm do
-    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.100/portola-release_Darwin_arm64.tar.gz"
-    sha256 "0b65f54be5db4b784061a67e420d24e042a39f40c360d75d2919554f79e5a34e"
+    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.101/portola-release_Darwin_arm64.tar.gz"
+    sha256 "29a8b8c1192be2bf0cc714b542738fd710c388b664b578a26de868ed01675a07"
 
     def install
       bin.install "pi"
@@ -36,7 +36,7 @@ class Pi < Formula
   end
 
   service do
-    run [opt_bin/"pi", "service", "start",  "-d", "ci"]
+    run [opt_bin/"pi", "service", "start"]
     environment_variables BREW_OPT_HOME: opt_prefix
     keep_alive true
     log_path "#{var}/log/pi/pi.out.log"
