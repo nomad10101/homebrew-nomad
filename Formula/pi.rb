@@ -5,12 +5,12 @@
 class Pi < Formula
   desc ""
   homepage "https://github.com/nomad10101/portola"
-  version "0.0.104"
+  version "0.0.105"
   depends_on :macos
 
   on_intel do
-    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.104/portola-release_Darwin_x86_64.tar.gz"
-    sha256 "7e299846e4e1d61ef18c0fcb5f4b71cc2053814957fec3f2710b06a271f91af4"
+    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.105/portola-release_Darwin_x86_64.tar.gz"
+    sha256 "63eb9a001ad722ecaa078d1a3f03a6d93fca55e6f9b8a52aa5f1519dd6397968"
 
     def install
       bin.install "pi"
@@ -19,8 +19,8 @@ class Pi < Formula
     end
   end
   on_arm do
-    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.104/portola-release_Darwin_arm64.tar.gz"
-    sha256 "b2f6cd83b23e3a8ae4cf2a9ad3825babe6368627504ad43259f0387e249e4c43"
+    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.105/portola-release_Darwin_arm64.tar.gz"
+    sha256 "a109df881b28c95198cc798c86989a6900c892c871baecb9acb3318ad77e4b58"
 
     def install
       bin.install "pi"
@@ -44,5 +44,6 @@ class Pi < Formula
     log_path "#{var}/log/pi/pi.out.log"
     error_log_path "#{var}/log/pi/pi.err.log"
     process_type :interactive
+    working_dir opt_prefix
   end
 end
