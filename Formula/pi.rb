@@ -5,27 +5,25 @@
 class Pi < Formula
   desc ""
   homepage "https://github.com/nomad10101/portola"
-  version "0.0.54"
+  version "0.0.60"
   depends_on :macos
 
   on_intel do
-    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.54/portola-release_Darwin_x86_64.tar.gz"
-    sha256 "fa966e550f516c0283df5a171389a693ea4790cea2b65e06600a31a65e4da9d6"
+    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.60/portola-release_Darwin_x86_64.tar.gz"
+    sha256 "042f998a7ff5031ee95f1c11e1a78b99782ce91b142db60d37828830223c42d5"
 
     def install
       bin.install "pi"
-      prefix.install Dir["config/ci/resources"]
-      prefix.install_symlink Dir["config/ci/resources"]
+      prefix.install Dir["resources"]
     end
   end
   on_arm do
-    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.54/portola-release_Darwin_arm64.tar.gz"
-    sha256 "123782916a2d12d7f79d55f904bd06d7f16e4b43402173deaadbd2349f30d1b5"
+    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.60/portola-release_Darwin_arm64.tar.gz"
+    sha256 "5f412675e17dbabea32e41cb0eabbe1e6706a53c954c0baa56d7265b1bbeab0b"
 
     def install
       bin.install "pi"
-      prefix.install Dir["config/ci/resources"]
-      prefix.install_symlink Dir["config/ci/resources"]
+      prefix.install Dir["resources"]
     end
   end
 
