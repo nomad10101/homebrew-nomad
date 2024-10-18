@@ -5,27 +5,25 @@
 class Pi < Formula
   desc ""
   homepage "https://github.com/nomad10101/portola"
-  version "0.0.105"
+  version "0.0.108"
   depends_on :macos
 
-  on_intel do
-    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.105/portola-release_Darwin_x86_64.tar.gz"
-    sha256 "63eb9a001ad722ecaa078d1a3f03a6d93fca55e6f9b8a52aa5f1519dd6397968"
+  url "https://github.com/nomad10101/portola/releases/download/v0.0.108/portola_Darwin_x86_64.tar.gz"
+  sha256 "9701bb8e91cc023a3a95f8cba026d883df69a5152eadc72b26422903372a707a"
 
-    def install
-      bin.install "pi"
-      prefix.install Dir["config/ci/resources"]
-      prefix.install "config/ci/deployment.yaml"
-    end
+  def install
+    bin.install "pi"
+    prefix.install Dir["config/ci/resources"]
+    prefix.install "config/ci/deployment.yaml"
   end
-  on_arm do
-    url "https://github.com/nomad10101/portola-release/releases/download/v0.0.105/portola-release_Darwin_arm64.tar.gz"
-    sha256 "a109df881b28c95198cc798c86989a6900c892c871baecb9acb3318ad77e4b58"
 
-    def install
-      bin.install "pi"
-      prefix.install Dir["config/ci/resources"]
-      prefix.install "config/ci/deployment.yaml"
+  on_arm do
+    def caveats
+      <<~EOS
+        The darwin_arm64 architecture is not supported for the Pi
+        formula at this time. The darwin_amd64 binary may work in compatibility
+        mode, but it might not be fully supported.
+      EOS
     end
   end
 
