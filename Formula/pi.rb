@@ -5,11 +5,11 @@
 class Pi < Formula
   desc ""
   homepage "https://github.com/nomad10101/portola"
-  version "0.0.133"
+  version "0.0.134"
   depends_on :macos
 
-  url "https://github.com/nomad10101/portola-release/releases/download/v0.0.133/portola-release_Darwin_x86_64.tar.gz"
-  sha256 "0b50926c761967b85223952388b1667aba2b01cbd31628158a4241119a820928"
+  url "https://github.com/nomad10101/portola-release/releases/download/v0.0.134/portola-release_Darwin_x86_64.tar.gz"
+  sha256 "8860cc657333e162fb4eced9ef3d3921bce04fd56e7af53e1278a7ed041007c4"
 
   def install
     bin.install "pi"
